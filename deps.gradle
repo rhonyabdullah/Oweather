@@ -1,0 +1,188 @@
+ext {
+    versions = [
+            // Gradle Plugins
+            gradleAndroid    : '3.5.2',
+            gradleKotlin     : rootProject.ext.kotlin_version,
+            googleServices   : '4.3.0',
+
+            // Jetbrain
+            kotlin           : rootProject.ext.kotlin_version,
+            coroutine        : '1.2.2',
+            anko             : '0.10.8',
+            ktor             : '1.2.2',
+            serialization    : '0.11.1',
+
+            // Android
+            support          : '1.0.0',
+            navigation       : '2.0.0',
+            dagger           : '2.25.2',
+            multidex         : '2.0.0',
+            constraintLayout : '2.0.0-beta2',
+            lifecycle        : '2.0.0',
+            glide            : '4.9.0',
+            glideTransform   : '4.0.1',
+            material         : "1.1.0-alpha07",
+            flexboxLayout    : "1.1.0",
+            facebookShimmer  : "0.5.0",
+
+            // Fastadapter
+            fastAdapter      : "4.0.1",
+            fastAdapterCommon: "3.3.1",
+
+            // Firebase
+            firebase         : '16.0.8',
+
+            // Test Instrumentation
+            junit            : '4.12',
+            androidTest      : '1.2.0',
+            espressoTest     : '3.1.0',
+            mockito          : '3.0.0',
+            mockito_kotlin   : '2.1.0',
+            kluent           : '1.55',
+            mockk            : '1.9.3'
+    ]
+
+    buildVersions = [
+            minSdk    : 19,
+            targetSdk : 29,
+            buildTools: "29.0.2"
+    ]
+
+    gradlePlugins = [
+            android            : "com.android.tools.build:gradle:${versions.gradleAndroid}",
+            safeArgsPlugin     : "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.navigation}",
+            kotlin             : "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.gradleKotlin}",
+            kotlinExtension    : "org.jetbrains.kotlin:kotlin-android-extensions:${versions.kotlin}",
+            kotlinSerialization: "org.jetbrains.kotlin:kotlin-serialization:${versions.kotlin}",
+            googleServices     : "com.google.gms:google-services:${versions.googleServices}",
+            protobuf           : "com.google.protobuf:protobuf-gradle-plugin:${versions.googleProtobuf}",
+            fabric             : 'io.fabric.tools:gradle:1.28.1',
+            sqldelight         : "com.squareup.sqldelight:gradle-plugin:${versions.sqldelight}",
+            atomicfu           : 'org.jetbrains.kotlinx:atomicfu-gradle-plugin:0.12.7'
+    ]
+
+    kotlinLibraries = [
+            standardCommon  : "org.jetbrains.kotlin:kotlin-stdlib-common:${versions.kotlin}",
+            standardAndroid : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
+            coroutineCommon : "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:${versions.coroutine}",
+            coroutineAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutine}",
+            coroutineNative : "org.jetbrains.kotlinx:kotlinx-coroutines-core-native:${versions.coroutine}",
+            ankoSqlite      : "org.jetbrains.anko:anko-sqlite:${versions.anko}",
+            logback         : "ch.qos.logback:logback-classic:1.2.3"
+    ]
+
+    ktor = [
+            clientCommon     : "io.ktor:ktor-client:${versions.ktor}",
+            clientAndroid    : "io.ktor:ktor-client-android:${versions.ktor}",
+            clientIos        : "io.ktor:ktor-client-ios:${versions.ktor}",
+            clientJsonCommon : "io.ktor:ktor-client-json:${versions.ktor}",
+            clientJackson    : "io.ktor:ktor-client-jackson:${versions.ktor}",
+            clientGson       : "io.ktor:ktor-client-gson:${versions.ktor}",
+            clientCio        : "io.ktor:ktor-client-cio:${versions.ktor}",
+            clientJsonAndroid: "io.ktor:ktor-client-json-jvm:${versions.ktor}",
+            clientJsonNative : "io.ktor:ktor-client-json-native:${versions.ktor}",
+            clientAuth       : "io.ktor:ktor-client-auth:${versions.ktor}"
+    ]
+
+    androidLibraries = [
+            appCompat             : "androidx.appcompat:appcompat:1.0.2",
+            annotations           : "androidx.annotation:annotation:${versions.support}",
+            recyclerview          : "androidx.recyclerview:recyclerview:${versions.support}",
+            cardview              : "androidx.cardview:cardview:${versions.support}",
+            design                : "com.google.android.material:material:${versions.material}",
+            v4                    : "androidx.legacy:legacy-support-v4:${versions.support}",
+            coreUtils             : "androidx.legacy:legacy-support-core-utils:${versions.support}",
+            coreKtx               : "androidx.core:core-ktx:${versions.support}",
+            multidex              : "androidx.multidex:multidex:${versions.multidex}",
+            constraintLayout      : "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
+            constraintLayoutSolver: "androidx.constraintlayout:constraintlayout-solver:${versions.constraintLayout}",
+            flexboxLayout         : "com.google.android:flexbox:${versions.flexboxLayout}",
+            fragmentKtx           : "androidx.fragment:fragment-ktx:${versions.support}"
+    ]
+
+    facebookLibraries = [
+            shimmer: "com.facebook.shimmer:shimmer:${versions.facebookShimmer}"
+    ]
+
+    daggerLibraries = [
+            runtime               : "com.google.dagger:dagger:${versions.dagger}",
+            androidSupport        : "com.google.dagger:dagger-android-support:${versions.dagger}",
+            compiler              : "com.google.dagger:dagger-compiler:${versions.dagger}",
+            androidSupportCompiler: "com.google.dagger:dagger-android-processor:${versions.dagger}"
+    ]
+
+    lifecycleLibraries = [
+            runtime       : "androidx.lifecycle:lifecycle-runtime:${versions.lifecycle}",
+            extensions    : "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle}",
+            java8         : "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycle}",
+            compiler      : "androidx.lifecycle:lifecycle-compiler:${versions.lifecycle}",
+            reactivestream: "androidx.lifecycle:lifecycle-reactivestreams:${versions.lifecycle}"
+    ]
+
+    navigationLibraries = [
+            runtime    : "androidx.navigation:navigation-runtime:${versions.navigation}",
+            fragment   : "androidx.navigation:navigation-fragment:${versions.navigation}",
+            fragmentKtx: "androidx.navigation:navigation-fragment-ktx:${versions.navigation}",
+            uiKtx      : "androidx.navigation:navigation-ui-ktx:${versions.navigation}",
+            testing    : "androidx.navigation:navigation-testing:${versions.navigation}"
+    ]
+
+    glideLibraries = [
+            runtime        : "com.github.bumptech.glide:glide:${versions.glide}",
+            compiler       : "com.github.bumptech.glide:compiler:${versions.glide}",
+            transformations: "jp.wasabeef:glide-transformations:${versions.glideTransform}"
+    ]
+
+    fastAdapterLibraries = [
+            core      : "com.mikepenz:fastadapter:${versions.fastAdapter}",
+            expandable: "com.mikepenz:fastadapter-extensions-expandable:${versions.fastAdapter}@aar",
+            common    : "com.mikepenz:fastadapter-commons:${versions.fastAdapterCommon}"
+    ]
+
+    firebaseLibraries = [
+            core       : "com.google.firebase:firebase-core:${versions.firebase}",
+            crashlytics: "com.crashlytics.sdk.android:crashlytics:2.10.0@aar"
+    ]
+
+    testDependencies = [
+            jUnit                   : "junit:junit:${versions.junit}",
+            androidJUnitRunner      : "androidx.test.runner.AndroidJUnitRunner",
+            androidTestJunit        : "androidx.test.ext:junit:1.1.1",
+            androidTestRule         : "androidx.test:rules:${versions.androidTest}",
+            androidTestCore         : "androidx.test:core:${versions.androidTest}",
+            androidAssertionsTruth  : "androidx.test.ext:truth:${versions.androidTest}",
+            androidXCoreTest        : "android.arch.core:core-testing:${versions.androidTest}",
+            espressoCore            : "androidx.test.espresso:espresso-core:${versions.espressoTest}",
+            espressoContrib         : "androidx.test.espresso:espresso-contrib:${versions.espressoTest}",
+            espressoIntents         : "androidx.test.espresso:espresso-intents:${versions.espressoTest}",
+            espressoIdlingResource  : "androidx.test.espresso:espresso-idling-resource:${versions.espressoTest}",
+            espressoIdlingConcurrent: "androidx.test.espresso.idling:idling-concurrent:${versions.espressoTest}",
+            googleAssertionsTruth   : "com.google.truth:truth:1.0",
+            kotlinCommon            : 'org.jetbrains.kotlin:kotlin-test-common',
+            kotlinAndroid           : 'org.jetbrains.kotlin:kotlin-test',
+            kotlinAnnotationsCommon : 'org.jetbrains.kotlin:kotlin-test-annotations-common',
+            kotlinJunit             : 'org.jetbrains.kotlin:kotlin-test-junit',
+            mockitoKotlin           : "com.nhaarman.mockitokotlin2:mockito-kotlin:${versions.mockito_kotlin}",
+            mockitoInline           : "org.mockito:mockito-inline:${versions.mockito}",
+            mockitoAndroid          : "org.mockito:mockito-android:${versions.mockito}",
+            kluent                  : "org.amshove.kluent:kluent:${versions.kluent}",
+            mockk                   : "io.mockk:mockk:${versions.mockk}",
+            ktorClientMock          : "io.ktor:ktor-client-mock:${versions.ktor}",
+            ktorClientMockJvm       : "io.ktor:ktor-client-mock-jvm:${versions.ktor}",
+            coroutinesTest          : "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutine}"
+    ]
+}
+
+static def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+    handler.mavenCentral()
+    handler.maven { url "https://kotlin.bintray.com/kotlinx" }
+    handler.maven { url "https://jitpack.io" }
+    handler.maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
+    handler.maven { url "http://kotlin.bintray.com/kotlin-dev" }
+    handler.maven { url "https://maven.fabric.io/public" }
+    handler.maven { url "http://dl.bintray.com/kotlin/ktor" }
+}
+
+ext.addRepos = this.&addRepos

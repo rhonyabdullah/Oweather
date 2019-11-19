@@ -1,0 +1,21 @@
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //kotlin
+    implementation kotlinLibraries.standardAndroid
+    implementation kotlinLibraries.coroutineAndroid
+
+    //dagger
+    implementation daggerLibraries.runtime
+    kapt daggerLibraries.compiler
+    kaptTest daggerLibraries.compiler
+    testImplementation daggerLibraries.compiler
+
+    //test
+    testImplementation testDependencies.jUnit
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"

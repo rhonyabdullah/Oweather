@@ -1,0 +1,23 @@
+apply plugin: 'com.android.library'
+apply from: '../configs.android.gradle'
+
+android {
+    defaultConfig {
+        buildConfigField 'String', 'BASE_URL', base_url
+    }
+}
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':common')
+
+    implementation ktor.clientAndroid
+    implementation ktor.clientJsonAndroid
+    implementation ktor.clientGson
+
+    testImplementation testDependencies.kluent
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.mockitoInline
+    testImplementation testDependencies.ktorClientMock
+    testImplementation testDependencies.ktorClientMockJvm
+}

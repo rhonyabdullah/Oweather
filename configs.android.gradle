@@ -1,0 +1,106 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply from: '../configs.default.gradle'
+
+android {
+    packagingOptions {
+        exclude 'META-INF/*.kotlin_module'
+        exclude 'META-INF/INDEX.LIST'
+        exclude 'META-INF/io.netty.versions.properties'
+    }
+
+    compileSdkVersion buildVersions.targetSdk
+    buildToolsVersion buildVersions.buildTools
+
+    def buildVersionCode = 1 //default starting point
+    def reset = false
+    //auto-increment version code
+    Properties versionProps = new Properties()
+    def versionPropsFile = file('version.properties')
+    if (versionPropsFile.exists() && versionPropsFile.canRead()) {
+        versionProps.load(new FileInputStream(versionPropsFile))
+        buildVersionCode = (versionProps['VERSION_CODE'] ?: buildVersionCode.toString()).toInteger()
+    }
+    buildVersionCode += 1
+    if (reset) {
+        buildVersionCode = 1
+    }
+    versionProps['VERSION_CODE'] = buildVersionCode.toString()
+    versionProps.store(versionPropsFile.newWriter(), null)
+
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        minSdkVersion buildVersions.minSdk
+        targetSdkVersion buildVersions.targetSdk
+        resConfigs "en"
+        testInstrumentationRunner testDependencies.androidJUnitRunner
+        dimension buildVersions.dimension
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        debug {
+            defaultConfig.versionCode = buildVersionCode
+        }
+        release {
+            defaultConfig.versionCode = 1
+            proguardFiles fileTree(dir: "proguard", include: ["*.pro"]).asList().toArray()
+        }
+    }
+
+    sourceSets.main.java.srcDirs += 'src/main/kotlin'
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //kotlin
+    implementation kotlinLibraries.coroutineAndroid
+
+    //android
+    implementation androidLibraries.appCompat
+    implementation androidLibraries.annotations
+    implementation androidLibraries.design
+    implementation androidLibraries.v4
+    implementation androidLibraries.cardview
+    implementation androidLibraries.recyclerview
+    implementation androidLibraries.constraintLayout
+    implementation androidLibraries.constraintLayoutSolver
+    implementation androidLibraries.coreKtx
+    implementation androidLibraries.coreUtils
+
+    //Lifecycle
+    implementation lifecycleLibraries.runtime
+    implementation lifecycleLibraries.extensions
+    implementation lifecycleLibraries.java8
+    implementation lifecycleLibraries.reactivestream
+    kapt lifecycleLibraries.compiler
+
+    //dagger
+    implementation daggerLibraries.androidSupport
+    kapt daggerLibraries.androidSupportCompiler
+
+    //test
+    androidTestImplementation testDependencies.androidTestCore
+    androidTestImplementation testDependencies.androidTestJunit
+    androidTestImplementation testDependencies.androidTestRule
+    androidTestImplementation testDependencies.androidAssertionsTruth
+    androidTestImplementation testDependencies.espressoCore
+    androidTestImplementation testDependencies.espressoContrib
+    androidTestImplementation testDependencies.espressoIntents
+    androidTestImplementation testDependencies.espressoIdlingResource
+    androidTestImplementation testDependencies.espressoIdlingConcurrent
+    androidTestImplementation testDependencies.googleAssertionsTruth
+}
+
+androidExtensions {
+    experimental = true
+}

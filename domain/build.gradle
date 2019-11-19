@@ -1,0 +1,9 @@
+apply plugin: 'kotlin'
+apply from: '../configs.default.gradle'
+
+dependencies {
+    implementation project(':common')
+
+    testImplementation testDependencies.kluent
+    testImplementation testDependencies.mockk
+}
