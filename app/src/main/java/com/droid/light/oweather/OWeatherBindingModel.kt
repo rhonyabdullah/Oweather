@@ -19,7 +19,7 @@ import javax.inject.Inject
  *
  * Created by Rhony Abdullah Siagian on 2019-11-22.
  *
- * Todo, BR Property marked as error but still runable, this is bug from databinding!
+ * Todo, BR Property marked as error but still runnable, this is bug from databinding! So just build & run !
  */
 class OWeatherBindingModel @Inject constructor() : BaseObservable() {
 
