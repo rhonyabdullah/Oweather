@@ -1,4 +1,5 @@
-import com.droid.silverbullet.common.model.entity.CurrentWeatherEntity
+
+import com.droid.silverbullet.common.model.data.CurrentWeatherData
 import com.droid.silverbullet.domain.repository.CurrentWeatherRepository
 import com.droid.silverbullet.domain.usecase.GetCurrentWeatherByGeoUseCase
 import com.droid.silverbullet.domain.usecase.UseCaseResponse
@@ -31,12 +32,12 @@ class GetCurrentWeatherByGeoTest {
     @Test
     fun `retrieve current weather data from geographic lat long`() = runBlocking {
         //        given
-        val response = mockk<UseCaseResponse<CurrentWeatherEntity>>()
+        val response = mockk<UseCaseResponse<CurrentWeatherData>>()
         val params = GetCurrentWeatherByGeoUseCase.Params(latitude = latitudeTest, longitude = longitudeTest)
-        every { runBlocking { repository.getByGeographic() } } returns response
+        every { runBlocking { repository.getWeatherByGeographic(latitudeTest, longitudeTest) } } returns response
 
         //        when
-        val result = useCase.execute()
+        val result = useCase.execute(params)
 
         //        then
         result shouldEqual response

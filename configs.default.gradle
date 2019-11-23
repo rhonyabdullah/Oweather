@@ -11,6 +11,7 @@ dependencies {
     implementation daggerLibraries.runtime
     kapt daggerLibraries.compiler
     kaptTest daggerLibraries.compiler
+    testAnnotationProcessor daggerLibraries.compiler
     testImplementation daggerLibraries.compiler
 
     //test

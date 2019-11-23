@@ -10,4 +10,6 @@ object Constant {
     const val WEATHER_TYPE_RAIN = "Rain"
     const val WEATHER_TYPE_CLOUD = "Clouds"
     const val WEATHER_TYPE_EXTREME = "Extreme"
+    const val WEATHER_TYPE_HAZE = "Haze"
+    const val WEATHER_TYPE_THUNDER = "Thunder"
 }

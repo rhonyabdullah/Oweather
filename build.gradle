@@ -5,6 +5,7 @@ buildscript {
     apply from: 'deps.gradle'
     addRepos(repositories)
     dependencies {
+        classpath gradlePlugins.googleServices
         classpath gradlePlugins.android
         classpath gradlePlugins.kotlin
         classpath gradlePlugins.kotlinExtension

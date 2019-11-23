@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.droid.light.oweather.items.HourlyWeatherItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_larger"
+        android:layout_marginTop="@dimen/padding_larger"
+        android:layout_marginBottom="@dimen/padding_larger"
+        android:padding="@dimen/padding_medium"
+        tools:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/tv_time"
+            style="@style/TextBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_smaller"
+            android:text="@{item.time}"
+            android:textColor="@color/grey_900"
+            android:textSize="@dimen/textsize_body"
+            app:layout_constraintBottom_toTopOf="@id/aciv_cloud_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="10AM" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aciv_cloud_time"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/margin_large"
+            app:layout_constraintBottom_toTopOf="@id/tv_temperature_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_time"
+            app:srcCompat="@{item.cloudIcon}"
+            tools:srcCompat="@drawable/ic_rain" />
+
+        <TextView
+            android:id="@+id/tv_temperature_time"
+            style="@style/TextRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:text="@{String.valueOf(item.temperature)}"
+            android:textColor="@color/grey_600"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/aciv_cloud_time"
+            tools:text="20" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_marginStart="@dimen/margin_smallest"
+            android:layout_marginTop="@dimen/margin_small"
+            app:layout_constraintStart_toEndOf="@id/tv_temperature_time"
+            app:layout_constraintTop_toTopOf="@id/tv_temperature_time"
+            app:srcCompat="@drawable/stroke_round_grey" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

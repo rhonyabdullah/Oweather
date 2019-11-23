@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.droid.light.oweather.OWeatherBindingModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.47" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_gradient"
+            app:layout_constraintBottom_toBottomOf="@id/gl_center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_top"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.07" />
+
+        <TextView
+            android:id="@+id/tv_city"
+            style="@style/TextRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{model.city}"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/gl_top"
+            tools:text="Mampang Prapatan" />
+
+        <TextView
+            android:id="@+id/tv_day_name"
+            style="@style/TextRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:alpha="0.9"
+            android:text="@{model.day}"
+            android:textSize="@dimen/textsize_body"
+            app:layout_constraintEnd_toStartOf="@id/tv_date"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_city"
+            tools:text="Senin," />
+
+        <TextView
+            android:id="@+id/tv_date"
+            style="@style/TextRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:alpha="0.9"
+            android:text="@{model.date}"
+            android:textSize="@dimen/textsize_body"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_day_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_city"
+            tools:text="1 January 2020" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_date"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tv_day_name,tv_date" />
+
+        <TextView
+            android:id="@+id/tv_temperature_degree"
+            style="@style/TextRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_larger"
+            android:text="@{String.valueOf(model.temperature)}"
+            android:textSize="80sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/barrier_date"
+            tools:text="20" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="@dimen/margin_larger"
+            app:layout_constraintStart_toEndOf="@id/tv_temperature_degree"
+            app:layout_constraintTop_toTopOf="@id/tv_temperature_degree"
+            app:srcCompat="@drawable/stroke_round" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aciv_cloud"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="@dimen/margin_larger"
+            app:layout_constraintEnd_toStartOf="@id/tv_cloud_desc"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_temperature_degree"
+            app:srcCompat="@{model.cloudType}"
+            tools:srcCompat="@drawable/ic_cloud" />
+
+        <TextView
+            android:id="@+id/tv_cloud_desc"
+            style="@style/TextRegular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:text="@{model.cloudDescription}"
+            android:textSize="@dimen/textsize_body"
+            app:layout_constraintBottom_toBottomOf="@id/aciv_cloud"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/aciv_cloud"
+            app:layout_constraintTop_toTopOf="@id/aciv_cloud"
+            tools:text="Berawan" />
+
+        <com.droid.light.common.customview.BindableRecyclerView
+            android:id="@+id/rv_hourly"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:layoutAnimation="@anim/layout_anim_fall_down"
+            android:paddingStart="0dp"
+            android:paddingEnd="@dimen/padding_larger"
+            app:data="@{model.hourlyData}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gl_center"
+            app:orientation="horizontal"
+            tools:listitem="@layout/list_item_hourly_weather" />
+
+        <View
+            android:id="@+id/view_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grey_200"
+            app:layout_constraintTop_toBottomOf="@id/rv_hourly" />
+
+        <com.droid.light.common.customview.BindableRecyclerView
+            android:id="@+id/rv_daily"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/transparent"
+            app:data="@{model.dailyData}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_divider"
+            app:orientation="vertical"
+            tools:listitem="@layout/list_item_daily_weather" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="o">
+    <!--regular-->
+    <font
+        android:font="@font/inter_bold"
+        android:fontStyle="normal"
+
+        app:font="@font/inter_bold"
+        app:fontStyle="normal" />
+
+    <!-- italic -->
+    <font
+        android:font="@font/inter_bold_italic"
+        android:fontStyle="italic"
+
+        app:font="@font/inter_bold_italic"
+        app:fontStyle="italic" />
+</font-family>

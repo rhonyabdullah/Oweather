@@ -20,4 +20,14 @@
         <item name="android:textSize">@dimen/textsize_smaller</item>
     </style>
 
+    <style name="TextRegular">
+        <item name="android:fontFamily">@font/font_inter</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="TextBold">
+        <item name="android:fontFamily">@font/font_inter_bold</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

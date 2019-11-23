@@ -7,13 +7,13 @@ package com.droid.silverbullet.common.model.entity
  */
 data class CurrentWeatherEntity(
     val coord: Coord? = null,
-    val weather: List<Weather?>? = null,
+    val weather: List<Weather>? = null,
     val base: String? = null,
     val main: Main? = null,
     val visibility: Int? = null,
     val wind: Wind? = null,
     val clouds: Clouds? = null,
-    val dt: Int? = null,
+    val dt: Long? = null,
     val sys: Sys? = null,
     val timezone: Int? = null,
     val id: Int? = null,
@@ -37,7 +37,7 @@ data class CurrentWeatherEntity(
         val pressure: Int? = null,
         val humidity: Int? = null,
         val temp_min: Double? = null,
-        val temp_max: Int? = null
+        val temp_max: Double? = null
     )
 
     data class Wind(

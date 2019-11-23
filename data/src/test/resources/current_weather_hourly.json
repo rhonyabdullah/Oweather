@@ -1,0 +1,82 @@
+[
+  {
+    "time": "10AM",
+    "weather": [
+      {
+        "id": 802,
+        "main": "Rain",
+        "description": "awan tersebar",
+        "icon": "03d"
+      }
+    ],
+    "main": {
+      "temp": 18,
+      "temp_min": 28.58,
+      "temp_max": 28.58,
+      "pressure": 1011,
+      "sea_level": 1011,
+      "grnd_level": 1011,
+      "humidity": 71
+    }
+  },
+  {
+    "time": "11AM",
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clouds",
+        "description": "awan tersebar",
+        "icon": "03d"
+      }
+    ],
+    "main": {
+      "temp": 20,
+      "temp_min": 28.58,
+      "temp_max": 28.58,
+      "pressure": 1011,
+      "sea_level": 1011,
+      "grnd_level": 1011,
+      "humidity": 71
+    }
+  },
+  {
+    "time": "12PM",
+    "weather": [
+      {
+        "id": 802,
+        "main": "Clear",
+        "description": "awan tersebar",
+        "icon": "03d"
+      }
+    ],
+    "main": {
+      "temp": 26,
+      "temp_min": 28.58,
+      "temp_max": 28.58,
+      "pressure": 1011,
+      "sea_level": 1011,
+      "grnd_level": 1011,
+      "humidity": 71
+    }
+  },
+  {
+    "time": "1PM",
+    "weather": [
+      {
+        "id": 802,
+        "main": "Thunder",
+        "description": "awan tersebar",
+        "icon": "03d"
+      }
+    ],
+    "main": {
+      "temp": 24,
+      "temp_min": 28.58,
+      "temp_max": 28.58,
+      "pressure": 1011,
+      "sea_level": 1011,
+      "grnd_level": 1011,
+      "humidity": 71
+    }
+  }
+]

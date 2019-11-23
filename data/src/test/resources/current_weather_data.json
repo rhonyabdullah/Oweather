@@ -1,0 +1,48 @@
+{
+  "coord": {
+    "lon": 106.86,
+    "lat": -6.22
+  },
+  "weather": [
+    {
+      "id": 211,
+      "main": "Thunderstorm",
+      "description": "badai",
+      "icon": "11d"
+    },
+    {
+      "id": 501,
+      "main": "Rain",
+      "description": "hujan sedang",
+      "icon": "10d"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 29.85,
+    "pressure": 1007,
+    "humidity": 66,
+    "temp_min": 27.78,
+    "temp_max": 31
+  },
+  "visibility": 5000,
+  "wind": {
+    "speed": 5.7,
+    "deg": 360
+  },
+  "clouds": {
+    "all": 40
+  },
+  "dt": 1574329339,
+  "sys": {
+    "type": 1,
+    "id": 9383,
+    "country": "ID",
+    "sunrise": 1574288753,
+    "sunset": 1574333458
+  },
+  "timezone": 25200,
+  "id": 1642907,
+  "name": "Daerah Khusus Ibukota Jakarta",
+  "cod": 200
+}

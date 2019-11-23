@@ -14,7 +14,7 @@ class GetCurrentWeatherByGeoUseCase @Inject constructor(
 ) : UseCase<CurrentWeatherData, GetCurrentWeatherByGeoUseCase.Params>() {
 
     override suspend fun build(params: Params?): UseCaseResponse<CurrentWeatherData> {
-        return repository.getByGeographic()
+        return repository.getWeatherByGeographic(params!!.latitude, params.longitude)
     }
 
     data class Params(val latitude: Double, val longitude: Double)

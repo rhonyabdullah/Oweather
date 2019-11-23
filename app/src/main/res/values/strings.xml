@@ -3,4 +3,5 @@
     <string name="clear_recipes">Clear Recipes</string>
     <string name="ingredients">Ingredients</string>
     <string name="recipes">Recipes</string>
+    <string name="location_prompt">Need location access to retrieve current weather</string>
 </resources>

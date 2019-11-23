@@ -39,6 +39,7 @@ android {
         testInstrumentationRunner testDependencies.androidJUnitRunner
         dimension buildVersions.dimension
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
 
     buildTypes {

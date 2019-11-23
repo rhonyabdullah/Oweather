@@ -20,6 +20,8 @@ dependencies {
     implementation project(':domain')
     implementation project(':data')
 
+    implementation androidLibraries.multidex
+
     //glide
     implementation glideLibraries.runtime
     implementation glideLibraries.transformations
@@ -37,6 +39,8 @@ dependencies {
 
     implementation ktor.clientCommon
     implementation facebookLibraries.shimmer
+
+    implementation googleServicesLibraries.location
 
     testImplementation testDependencies.kluent
     testImplementation testDependencies.mockitoKotlin

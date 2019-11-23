@@ -144,6 +144,10 @@ ext {
             crashlytics: "com.crashlytics.sdk.android:crashlytics:2.10.0@aar"
     ]
 
+    googleServicesLibraries = [
+            location : "com.google.android.gms:play-services-location:17.0.0"
+    ]
+
     testDependencies = [
             jUnit                   : "junit:junit:${versions.junit}",
             androidJUnitRunner      : "androidx.test.runner.AndroidJUnitRunner",
