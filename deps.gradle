@@ -15,7 +15,7 @@ ext {
             // Android
             support          : '1.0.0',
             navigation       : '2.0.0',
-            dagger           : '2.25.2',
+            dagger           : '2.26',
             multidex         : '2.0.0',
             constraintLayout : '2.0.0-beta2',
             lifecycle        : '2.0.0',
